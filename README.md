@@ -49,7 +49,7 @@ Make sure you have Claude Desktop version ≥ 2.0 for MCP support.
 #### Option B: Clone manually
 
 ```bash
-git clone https://github.com/YOUR_ORG_OR_USERNAME/nli_mcp.git
+git clone https://github.com/mula2812/NLI_AI_Search.git
 ```
 
 ```bash
