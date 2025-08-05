@@ -161,7 +161,8 @@ You'll get:
 
 **🔧 Plugin not appearing?**
 
-Ensure Claude Desktop is ≥ v2.0 and you restarted after install.
+- Ensure Claude Desktop is ≥ v2.0 and you restarted after install.
+- Ensure that the installation package or project is located **only in a path that contains English characters**.
 
 **💬 MCP isn't responding. What should I do?**
 
