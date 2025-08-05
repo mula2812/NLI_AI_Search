@@ -37,12 +37,13 @@ Make sure you have Claude Desktop version ≥ 2.0 for MCP support.
 ### 2. Download or Clone
 
 #### Option A: Download the packaged release
+Download it from [here](https://github.com/mula2812/NLI_AI_Search/releases/tag/v1.0.0).
 
-- Available for **Windows** and **Linux** together.
+- Available for **Windows** and **Linux** in one package.
 - Unzip the downloaded file.
-- Double-click:
-  - `install_mcp_server.bat` (Windows)
-  - `install_mcp_server.bash` (Linux)
+- Double-click to install:
+  - `install_mcp_server.bat` (for Windows)
+  - `install_mcp_server.bash` (for Linux)
 
 ➡ This will install and register the server with **Claude Desktop**.
 
