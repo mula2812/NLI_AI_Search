@@ -8,7 +8,7 @@ This MCP server allows **natural language search** using **Claude**, making it e
 
 The NLI API is powerful but complex. It requires structured metadata-based queries that are hard to construct without technical or library-specific knowledge. This MCP bridges that gap by converting simple questions like:
 
-> "old Hebrew children books by Israeli authors"
+> "medieval Hebrew manuscripts"
 
 into rich API calls that return accurate and media-rich results with thumbnails, manifests, or streaming content when available.
 
