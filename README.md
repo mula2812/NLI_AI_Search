@@ -39,7 +39,7 @@ Make sure you have Claude Desktop version ≥ 2.0 for MCP support.
 #### Option A: Download the packaged release
 Download it from [here](https://github.com/mula2812/NLI_AI_Search/releases/tag/v1.0.0).
 
-- Available for **Windows** and **Linux** in one package.
+- Available for **Windows** (with .zip) and **Linux** (with .tar.gz).
 - Unzip the downloaded file.
 - Double-click to install:
   - `install_mcp_server.bat` (for Windows)
