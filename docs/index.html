@@ -154,9 +154,15 @@
                 <div class="fade-in">
                     <h3 class="text-2xl font-semibold mb-4">2. Download or Clone</h3>
                     <h4 class="text-xl font-medium">Option A: Download the packaged release</h4>
-                    <p>Download from <a href="https://github.com/mula2812/NLI_AI_Search/releases/tag/v1.0.0" class="text-blue-600 hover:underline">here</a>.</p>
+                    <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 justify-center my-4">
+                        <a href="https://github.com/mula2812/NLI_AI_Search/archive/refs/tags/v1.0.0.zip" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full flex items-center justify-center hover:from-blue-700 hover:to-purple-700">
+                            <span class="me-2">↓</span> <span id="text-win">Download for Windows</span>
+                        </a>
+                        <a href="https://github.com/mula2812/NLI_AI_Search/archive/refs/tags/v1.0.0.tar.gz" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full flex items-center justify-center hover:from-blue-700 hover:to-purple-700">
+                            <span class="me-2">↓</span> <span id="text-lin">Download for Linux</span>
+                        </a>
+                    </div>
                     <ul class="list-disc ml-6">
-                        <li>Available for Windows (with .zip) and Linux (with .tar.gz).</li>
                         <li>Unzip the downloaded file.</li>
                         <li>Double-click to install:
                             <ul class="list-disc ml-6">
@@ -335,7 +341,9 @@ sudo update-alternatives --config python3</code></pre>
                     step4: '4. Install Requirements',
                     step5: '5. Run the Installer',
                     step6: '6. Launch Claude Desktop',
-                    step6content: "Restart Claude Desktop. Look for 'nli_mcp' in Search and Tools."
+                    step6content: "Restart Claude Desktop. Look for 'nli_mcp' in Search and Tools.",
+                    downloadWindows: 'Download for Windows',
+                    downloadLinux: 'Download for Linux'
                 },
                 tools: {
                     title: 'Tools Available',
@@ -417,7 +425,9 @@ sudo update-alternatives --config python3</code></pre>
                     step4: '4. התקן דרישות',
                     step5: '5. הרץ את המתקין',
                     step6: '6. הפעל Claude Desktop',
-                    step6content: "הפעל מחדש Claude Desktop. חפש 'nli_mcp' בחיפוש וכלים."
+                    step6content: "הפעל מחדש Claude Desktop. חפש 'nli_mcp' בחיפוש וכלים.",
+                    downloadWindows: 'הורד עבור Windows',
+                    downloadLinux: 'הורד עבור Linux'
                 },
                 tools: {
                     title: 'כלים זמינים',
@@ -465,7 +475,7 @@ sudo update-alternatives --config python3</code></pre>
             document.querySelectorAll('nav a')[2].textContent = data.header.discover;
             document.querySelectorAll('nav a')[3].textContent = data.header.started;
             document.querySelectorAll('nav a')[4].textContent = data.header.tools;
-            document.querySelectorAll('nav a')[5].textContent = data.header.troubleshooting;
+            document.querySelectorAll('nav a')[5].textContent = data.troubleshooting;
             document.querySelectorAll('nav a')[6].textContent = data.header.contribute;
 
             // Hero
@@ -496,16 +506,8 @@ sudo update-alternatives --config python3</code></pre>
             });
             document.querySelector('#started h3:nth-of-type(2)').textContent = data.started.step2;
             document.querySelector('#started h4:nth-of-type(1)').textContent = data.started.optionA;
-            document.querySelector('#started > div > div:nth-child(2) p').innerHTML = data.started.optionAcontent.replace('here', '<a href="https://github.com/mula2812/NLI_AI_Search/releases/tag/v1.0.0" class="text-blue-600 hover:underline">כאן</a>');
-            const optionAlist = document.querySelector('#started > div > div:nth-child(2) ul li');
-            data.started.optionAlist.forEach((item, i) => {
-                optionAlist[i].textContent = item;
-                if (i === 2) {
-                    const sublist = optionAlist[i].querySelector('ul li');
-                    sublist[0].innerHTML = '<code>install_mcp_server.bat</code> (ל-Windows)';
-                    sublist[1].innerHTML = '<code>install_mcp_server.bash</code> (ל-Linux)';
-                }
-            });
+            document.getElementById('text-win').textContent = data.started.downloadWindows;
+            document.getElementById('text-lin').textContent = data.started.downloadLinux;
             document.querySelector('#started h4:nth-of-type(2)').textContent = data.started.optionB;
             document.querySelector('#started h3:nth-of-type(3)').textContent = data.started.step3;
             document.querySelector('#started h4:nth-of-type(3)').textContent = data.started.win;
