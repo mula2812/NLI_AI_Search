@@ -3,48 +3,74 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MCP Project Demo</title>
+  <title>MCP – NLI AI Search</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <header>
-    <h1>🚀 MCP – Explore the Israeli National Library with Claude AI</h1>
-    <p>Instant access to rare books, manuscripts, newspapers, and archival photos.</p>
+    <div class="container">
+      <h1>🚀 MCP – Explore the Israeli National Library with Claude AI</h1>
+      <p>Instant access to rare books, manuscripts, newspapers, and archival photos.</p>
+      <a class="btn-primary" href="https://github.com/mula2812/NLI_AI_Search" target="_blank">View on GitHub</a>
+    </div>
   </header>
 
   <section id="demo">
-    <h2>🎬 Demo</h2>
-    <img src="demo_screenshot.png" alt="MCP Demo" width="700">
+    <div class="container">
+      <h2>🎬 Demo</h2>
+      <p>See how easy it is to search NLI collections with Claude AI.</p>
+      <img src="demo_screenshot.png" alt="MCP Demo" class="demo-img">
+    </div>
   </section>
 
   <section id="installation">
-    <h2>💻 Installation</h2>
-    <h3>Windows</h3>
-    <ol>
-      <li>Download the ZIP</li>
-      <li>Extract the files</li>
-      <li>Run <code>setup.exe</code></li>
-    </ol>
-
-    <h3>Linux</h3>
-    <ol>
-      <li>Download the tar.gz</li>
-      <li>Extract the files</li>
-      <li>Run <code>./install.sh</code></li>
-    </ol>
+    <div class="container">
+      <h2>💻 Installation</h2>
+      <div class="install-box">
+        <h3>Windows</h3>
+        <ol>
+          <li>Download the ZIP file</li>
+          <li>Extract the files</li>
+          <li>Run <code>setup.exe</code></li>
+        </ol>
+      </div>
+      <div class="install-box">
+        <h3>Linux</h3>
+        <ol>
+          <li>Download the tar.gz file</li>
+          <li>Extract the files</li>
+          <li>Run <code>./install.sh</code></li>
+        </ol>
+      </div>
+    </div>
   </section>
 
-  <section id="links">
-    <h2>🔗 Links</h2>
-    <p>
-      <a href="https://github.com/mula2812/NLI_AI_Search" target="_blank">View on GitHub</a> |
+  <section id="features">
+    <div class="container">
+      <h2>✨ Features</h2>
+      <ul>
+        <li>Discover materials you didn’t know existed</li>
+        <li>Interactive historical research</li>
+        <li>Save hours of searching catalogs and shelves</li>
+        <li>Instant results with serial numbers for library requests</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="star">
+    <div class="container">
+      <h2>⭐ Support MCP</h2>
+      <p>If you like this project, give it a star on GitHub!</p>
       <a class="github-button" href="https://github.com/mula2812/NLI_AI_Search" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star mula2812/NLI_AI_Search on GitHub">Star</a>
-    </p>
+    </div>
   </section>
 
   <footer>
-    <p>Open. Ask. Discover. Repeat.</p>
+    <div class="container">
+      <p>Open. Ask. Discover. Repeat. | &copy; 2025 MCP Project</p>
+    </div>
   </footer>
 
   <!-- GitHub buttons script -->
