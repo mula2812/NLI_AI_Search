@@ -1,11 +1,11 @@
-/* Basic Reset */
+/* Reset בסיסי */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Fonts & Colors */
+/* פונטים וצבעים */
 body {
   font-family: 'Roboto', sans-serif;
   line-height: 1.6;
@@ -20,7 +20,7 @@ body {
   padding: 40px 0;
 }
 
-/* Header */
+/* כותרת ראשית */
 header {
   background: #1a73e8;
   color: #fff;
@@ -51,7 +51,7 @@ header p {
   background: #d81b60;
 }
 
-/* Sections */
+/* חלקים */
 section {
   background: #fff;
   margin: 30px 0;
@@ -83,7 +83,7 @@ ul {
   list-style: inside disc;
 }
 
-/* Footer */
+/* כותרת תחתונה */
 footer {
   text-align: center;
   padding: 20px 0;
@@ -91,4 +91,3 @@ footer {
   color: #fff;
   margin-top: 40px;
 }
-
