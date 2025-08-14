@@ -189,7 +189,7 @@ sudo update-alternatives --config python3</code></pre>
     <li>Restart Claude Desktop.</li>
     <li>After clicking the "Search and Tools" button in the search bar, you should now see a tool named: nli_mcp</li>
 <br>
-<center>If visible, you're ready to go!</center></p>
+If visible, you're ready to go!</p>
 </div>
 </div>
 </div>
@@ -198,28 +198,56 @@ sudo update-alternatives --config python3</code></pre>
 <!-- Now You Can Enjoy Using It Section -->
 <section id="enjoy" class="py-16">
   <div class="container mx-auto px-6">
-    <h2 class="text-3xl font-bold text-center mb-12 fade-in">How To Use👨‍💻</h2>
-    <div class="space-y-6">
-      <div class="fade-in">
-        <h3 class="text-2xl font-semibold mb-2">Once installed:</h3>
-        <ul class="list-disc ml-6 space-y-2">
-          <li>Open Claude Desktop.</li>
-          <li>Ask any question involving books, authors, subjects, images, or topics.</li>
-          <li>For example:
-            <ul class="list-disc ml-6 mt-2">
-              <li>Books by Bialik published after 1920.</li>
-            </ul>
+    <h2 class="text-3xl font-bold text-center mb-12 fade-in">How To Use 💡</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+      <!-- How to use -->
+      <div class="card bg-white p-8 rounded-lg shadow-xl fade-in">
+        <h3 class="text-2xl font-semibold text-blue-600 mb-4">Once installed:</h3>
+        <ul class="list-none space-y-4 text-lg">
+          <li class="flex items-start">
+            <span class="text-3xl mr-4 text-blue-500">→</span>
+            <p>Open Claude Desktop.</p>
+          </li>
+          <li class="flex items-start">
+            <span class="text-3xl mr-4 text-blue-500">→</span>
+            <p>Ask any question involving books, authors, subjects, images, or topics.</p>
+          </li>
+          <li class="flex items-start">
+            <span class="text-3xl mr-4 text-blue-500">→</span>
+            <div>
+              <p>For example:</p>
+              <ul class="list-disc ml-6 mt-2">
+                Books by Bialik published after 1920.
+              </ul>
+            </div>
           </li>
         </ul>
       </div>
-      <div class="fade-in">
-        <h3 class="text-2xl font-semibold mb-2">You'll get:</h3>
-        <ul class="list-disc ml-6 space-y-2">
-          <li>Search results</li>
-          <li>Metadata</li>
-          <li>Links to items</li>
-          <li>Images or thumbnails</li>
-          <li>In some cases, streaming content or IIIF resources</li>
+
+      <!-- What you'll get -->
+      <div class="card bg-white p-8 rounded-lg shadow-xl fade-in">
+        <h3 class="text-2xl font-semibold text-blue-600 mb-4">You'll get:</h3>
+        <ul class="list-none space-y-4 text-lg">
+          <li class="flex items-start">
+            <span class="text-3xl mr-4 text-blue-500">✓</span>
+            <p>Search results</p>
+          </li>
+          <li class="flex items-start">
+            <span class="text-3xl mr-4 text-blue-500">✓</span>
+            <p>Metadata</p>
+          </li>
+          <li class="flex items-start">
+            <span class="text-3xl mr-4 text-blue-500">✓</span>
+            <p>Links to items</p>
+          </li>
+          <li class="flex items-start">
+            <span class="text-3xl mr-4 text-blue-500">✓</span>
+            <p>Images or thumbnails</p>
+          </li>
+          <li class="flex items-start">
+            <span class="text-3xl mr-4 text-blue-500">✓</span>
+            <p>In some cases, streaming content or IIIF resources</p>
+          </li>
         </ul>
       </div>
     </div>
@@ -230,35 +258,65 @@ sudo update-alternatives --config python3</code></pre>
 <section id="troubleshooting" class="py-16 section-bg">
 <div class="container mx-auto px-6">
 <h2 class="text-3xl font-bold text-center mb-12 fade-in">Troubleshooting & FAQ &#x2699;&#xFE0F;</h2>
-<div class="space-y-6">
-<div class="fade-in">
-<h3 class="text-2xl font-semibold mb-2">Plugin not appearing?</h3>
-<ul class="list-disc ml-6 space-y-2">
-<li>Ensure Claude Desktop is ≥ v2.0 and you restarted after install.</li>
-<li>Ensure that the installation package or project is located only in a path that contains English characters.</li>
-</ul>
-</div>
-<div class="fade-in">
-<h3 class="text-2xl font-semibold mb-2">MCP isn't responding. What should I do?</h3>
-<ul class="list-disc ml-6 space-y-2">
-<li>Make sure you installed it correctly. You should see in search and tools the "nli_mcp" addition.</li>
-<li>Ensure you enable all the "nli_mcp" inside options (from the search and tools options).</li>
-<li>Check your internet connection and firewall settings.</li>
-<li>Review the logs for any error messages.</li>
-</ul>
-</div>
-<div class="fade-in">
-<h3 class="text-2xl font-semibold mb-2">"Invalid API key" error</h3>
-<p>As a default visitor key is installed to your computer using the bat or bash file, which allows basic access to the library data.</p>
-<ol class="list-decimal ml-6 space-y-2">
-<li>Double-check the NLI_API_KEY environment variable, to ensure it installed correctly.</li>
-<li>Another option is to create your own free key: Obtaining a personal API key is not essential for the project's initial function, as mentioned. However, if you want to get full access to all the data and capabilities the National Library offers, it is highly recommended to register and get your own API key.</li>
-</ol>
-<ul class="list-disc ml-6 space-y-2">
-<li>Visit the National Library of Israel's Open Library API documentation Open Library API (<a href="https://api2.nli.org.il/signup/" class="text-blue-600 hover:underline">click</a>).</li>
-<li>Follow the instructions to register and get your API key. You may need to contact the National Library for access.</li>
-</ul>
-</div>
+<div class="space-y-8">
+  <div class="card bg-white p-8 rounded-lg shadow-xl fade-in">
+    <h3 class="text-2xl font-semibold text-blue-600 mb-4">⚠️ Plugin not appearing?</h3>
+    <ul class="list-none space-y-4 text-lg">
+      <li class="flex items-start">
+        <span class="text-lg mr-4 text-gray-500">-</span>
+        <p>Ensure Claude Desktop is $\ge$ v2.0 and you restarted after install.</p>
+      </li>
+      <li class="flex items-start">
+        <span class="text-lg mr-4 text-gray-500">-</span>
+        <p>Ensure that the installation package or project is located only in a path that contains English characters.</p>
+      </li>
+    </ul>
+  </div>
+
+  <div class="card bg-white p-8 rounded-lg shadow-xl fade-in">
+    <h3 class="text-2xl font-semibold text-blue-600 mb-4">⚠️ MCP isn't responding. What should I do?</h3>
+    <ul class="list-none space-y-4 text-lg">
+      <li class="flex items-start">
+        <span class="text-lg mr-4 text-gray-500">-</span>
+        <p>Make sure you installed it correctly. You should see in search and tools the "nli_mcp" addition.</p>
+      </li>
+      <li class="flex items-start">
+        <span class="text-lg mr-4 text-gray-500">-</span>
+        <p>Ensure you enable all the "nli_mcp" inside options (from the search and tools options).</p>
+      </li>
+      <li class="flex items-start">
+        <span class="text-lg mr-4 text-gray-500">-</span>
+        <p>Check your internet connection and firewall settings.</p>
+      </li>
+      <li class="flex items-start">
+        <span class="text-lg mr-4 text-gray-500">-</span>
+        <p>Review the logs for any error messages.</p>
+      </li>
+    </ul>
+  </div>
+
+  <div class="card bg-white p-8 rounded-lg shadow-xl fade-in">
+    <h3 class="text-2xl font-semibold text-blue-600 mb-4">⚠️ "Invalid API key" error</h3>
+    <p class="text-lg">As a default visitor key is installed to your computer using the bat or bash file, which allows basic access to the library data.</p>
+    <div class="mt-4">
+      <ul class="list-none space-y-2 text-lg">
+        <li class="flex items-start">
+          <span class="text-lg mr-4 text-gray-500">-</span>
+          <p>Double-check the NLI_API_KEY environment variable, to ensure it installed correctly.</p>
+        </li>
+        <li class="flex items-start">
+          <span class="text-lg mr-4 text-gray-500">-</span>
+          <div>
+            <p>Another option is to create your own free key: Obtaining a personal API key is not essential for the project's initial function, as mentioned. However, if you want to get full access to all the data and capabilities the National Library offers, it is highly recommended to register and get your own API key.</p>
+            <ul class="list-disc ml-10 space-y-2 text-lg mt-4">
+              <li>Visit the National Library of Israel's Open Library API documentation Open Library API (<a href="https://api2.nli.org.il/signup/" class="text-blue-600 hover:underline">click</a>).</li>
+              <li>Follow the instructions to register and get your API key. You may need to contact the National Library for access.</li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>
 </div>
 </section>
@@ -266,13 +324,28 @@ sudo update-alternatives --config python3</code></pre>
 <!-- Contribute Section -->
 <section id="contribute" class="py-16">
 <div class="container mx-auto px-6 text-center">
-<h2 class="text-3xl font-bold mb-12 fade-in">Contributing &#x1F91D;</h2>
-<p class="text-lg max-w-3xl mx-auto mb-8 fade-in">I warmly welcome contributions to improve this project. To contribute, please follow these steps:</p>
-<ol class="list-decimal ml-6 text-left max-w-3xl mx-auto space-y-2">
-<li>Fork this repository to create your own copy.</li>
-<li>Make your changes in a new branch.</li>
-<li>Submit a pull request with a clear description of your changes.</li>
-</ol>
+<h2 class="text-3xl font-bold mb-12 fade-in">Contributing 🤝</h2>
+<p class="text-lg max-w-3xl mx-auto mb-8 fade-in">I warmly welcome contributions to improve this project. To contribute, please follow these simple steps:</p>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+  <!-- Step 1 Card -->
+  <div class="card bg-white p-6 rounded-lg shadow-lg flex flex-col items-center text-center fade-in">
+    <div class="bg-blue-100 text-blue-600 w-12 h-12 flex items-center justify-center rounded-full text-2xl font-bold mb-4">1</div>
+    <h3 class="text-xl font-semibold mb-2">Fork the Repository</h3>
+    <p>Create your own copy of the project on your GitHub account.</p>
+  </div>
+  <!-- Step 2 Card -->
+  <div class="card bg-white p-6 rounded-lg shadow-lg flex flex-col items-center text-center fade-in">
+    <div class="bg-blue-100 text-blue-600 w-12 h-12 flex items-center justify-center rounded-full text-2xl font-bold mb-4">2</div>
+    <h3 class="text-xl font-semibold mb-2">Make Your Changes</h3>
+    <p>Work on your improvements in a new branch, bringing your ideas to life.</p>
+  </div>
+  <!-- Step 3 Card -->
+  <div class="card bg-white p-6 rounded-lg shadow-lg flex flex-col items-center text-center fade-in">
+    <div class="bg-blue-100 text-blue-600 w-12 h-12 flex items-center justify-center rounded-full text-2xl font-bold mb-4">3</div>
+    <h3 class="text-xl font-semibold mb-2">Submit a Pull Request</h3>
+    <p>Share your work with a clear description for review and merging.</p>
+  </div>
+</div>
 <p class="text-lg mt-8 fade-in">I look forward to seeing your inventions and updates!</p>
 </div>
 </section>
