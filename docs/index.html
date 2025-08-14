@@ -1,580 +1,303 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NLI AI Search - National Library of Israel MCP</title>
-    <meta name="description" content="AI-powered natural language search for the National Library of Israel's digital archive.">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        .hebrew {
-            font-family: 'Rubik', sans-serif;
-        }
-        [dir="rtl"] {
-            direction: rtl;
-            text-align: right;
-        }
-        .hero-bg {
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-        }
-        .section-bg {
-            background: #f9fafb;
-        }
-        .card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .lang-switcher button {
-            transition: background-color 0.3s ease;
-        }
-        .lang-switcher button.active {
-            background-color: #3b82f6;
-            color: white;
-        }
-        pre {
-            background: #1f2937;
-            color: #e5e7eb;
-            padding: 1rem;
-            border-radius: 0.5rem;
-            overflow-x: auto;
-        }
-        table {
-            border-collapse: separate;
-            border-spacing: 0 1rem;
-        }
-        th, td {
-            padding: 1rem;
-            background: white;
-            border-radius: 0.5rem;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NLI AI Search - National Library of Israel MCP</title>
+<meta name="description" content="AI-powered natural language search for the National Library of Israel's digital archive.">
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+body {
+font-family: 'Inter', sans-serif;
+}
+.hero-bg {
+background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+}
+.section-bg {
+background: #f9fafb;
+}
+.card {
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+.fade-in {
+opacity: 0;
+transform: translateY(20px);
+transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.visible {
+opacity: 1;
+transform: translateY(0);
+}
+pre {
+background: #1f2937;
+color: #e5e7eb;
+padding: 1rem;
+border-radius: 0.5rem;
+overflow-x: auto;
+}
+table {
+border-collapse: separate;
+border-spacing: 0 1rem;
+}
+th, td {
+padding: 1rem;
+background: white;
+border-radius: 0.5rem;
+}
+</style>
 </head>
 <body class="bg-white text-gray-800">
-    <header class="sticky top-0 bg-white shadow-md z-10">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center">
-                <span class="text-2xl font-bold text-blue-600">NLI AI Search</span>
-            </div>
-            <nav class="hidden md:flex space-x-6">
-                <a href="#home" class="hover:text-blue-600">Home</a>
-                <a href="#why" class="hover:text-blue-600">Why Use</a>
-                <a href="#discover" class="hover:text-blue-600">Discover</a>
-                <a href="#started" class="hover:text-blue-600">Getting Started</a>
-                <a href="#tools" class="hover:text-blue-600">Tools</a>
-                <a href="#troubleshooting" class="hover:text-blue-600">Troubleshooting</a>
-                <a href="#contribute" class="hover:text-blue-600">Contribute</a>
-            </nav>
-            <div class="lang-switcher flex space-x-2">
-                <button id="lang-en" class="px-3 py-1 rounded-md bg-gray-200 active">EN</button>
-                <button id="lang-he" class="px-3 py-1 rounded-md bg-gray-200">HE</button>
-            </div>
-        </div>
-    </header>
+<!-- Header -->
+<header class="sticky top-0 bg-white shadow-md z-10">
+<div class="container mx-auto px-6 py-4 flex justify-between items-center">
+<div class="flex items-center">
+<span class="text-2xl font-bold text-blue-600">NLI AI Search</span>
+</div>
+<nav class="hidden md:flex space-x-6">
+<a href="#home" class="hover:text-blue-600">Home</a>
+<a href="#why" class="hover:text-blue-600">Why Use</a>
+<a href="#discover" class="hover:text-blue-600">Discover</a>
+<a href="#started" class="hover:text-blue-600">Getting Started</a>
+<a href="#enjoy" class="hover:text-blue-600">How To Use</a>
+<a href="#troubleshooting" class="hover:text-blue-600">Troubleshooting</a>
+<a href="#contribute" class="hover:text-blue-600">Contribute</a>
+</nav>
+</div>
+</header>
 
-    <section id="home" class="hero-bg text-white py-20">
-        <div class="container mx-auto px-6 text-center">
-            <h1 class="text-5xl font-bold mb-4 fade-in">National Library of Israel Search MCP</h1>
-            <p class="text-xl mb-8 fade-in">AI-powered bridge for exploring millions of cultural, historical, and literary assets.</p>
-            <a href="#started" class="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 fade-in">Get Started</a>
-        </div>
-    </section>
+<!-- Hero Section -->
+<section id="home" class="hero-bg text-white py-20">
+<div class="container mx-auto px-6 text-center">
+<h1 class="text-5xl font-bold mb-4 fade-in">National Library of Israel Search MCP</h1>
+<p class="text-xl mb-8 fade-in">AI-powered bridge for exploring millions of cultural, historical, and literary assets.</p>
+<a href="#started" class="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 fade-in">Get Started</a>
+</div>
+</section>
 
-    <section id="why" class="py-16 section-bg">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12 fade-in">Why Use This?</h2>
-            <p class="text-lg max-w-3xl mx-auto mb-8 fade-in">The NLI API is powerful but complex. This MCP converts simple questions like "medieval Hebrew manuscripts" into rich API calls with thumbnails and manifests.</p>
-        </div>
-    </section>
+<!-- Why Use Section -->
+<section id="why" class="py-16 section-bg">
+<div class="container mx-auto px-6">
+<h2 class="text-3xl font-bold text-center mb-12 fade-in">Why Use This?</h2>
+<p class="text-lg max-w-3xl mx-auto mb-8 fade-in">The lsraeli National Library holds rare newspapers, original manuscripts, archival photos, and journals with no digital equivalents — but most people have no easy access to them.<br>
+I decided to take action and make it simple and fast for everyone to explore.<br>
+So if you students writing essays and theses, Academic researchers seeking primary sources, Historians & archivists exploring rare collections or simply curious people <br>
+<center><b>this is the tool for you</b>.</center></p>
+</div>
+</section>
 
-    <section id="discover" class="py-16">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12 fade-in">What You Can Discover</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="card bg-white p-6 rounded-lg shadow-md fade-in">
-                    <h3 class="text-xl font-semibold mb-4">Historical Documents</h3>
-                    <p>Ancient manuscripts, government records, and personal archives.</p>
-                </div>
-                <div class="card bg-white p-6 rounded-lg shadow-md fade-in">
-                    <h3 class="text-xl font-semibold mb-4">Literary Works</h3>
-                    <p>Books, poetry, and writings in multiple languages.</p>
-                </div>
-                <div class="card bg-white p-6 rounded-lg shadow-md fade-in">
-                    <h3 class="text-xl font-semibold mb-4">Visual Materials</h3>
-                    <p>Photographs, maps, illustrations, and artwork.</p>
-                </div>
-                <div class="card bg-white p-6 rounded-lg shadow-md fade-in">
-                    <h3 class="text-xl font-semibold mb-4">Audio Collections</h3>
-                    <p>Music recordings, speeches, and oral histories.</p>
-                </div>
-                <div class="card bg-white p-6 rounded-lg shadow-md fade-in">
-                    <h3 class="text-xl font-semibold mb-4">Cultural Artifacts</h3>
-                    <p>Items representing Jewish heritage and Israeli culture.</p>
-                </div>
-                <div class="card bg-white p-6 rounded-lg shadow-md fade-in">
-                    <h3 class="text-xl font-semibold mb-4">Academic Resources</h3>
-                    <p>Research materials and scholarly publications.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Discover Section -->
+<section id="discover" class="py-16">
+<div class="container mx-auto px-6">
+<h2 class="text-3xl font-bold text-center mb-12 fade-in">What You Can Discover</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="card bg-white p-6 rounded-lg shadow-md fade-in">
+<h3 class="text-xl font-semibold mb-4">Historical Documents</h3>
+<p>Ancient manuscripts, government records, and personal archives.</p>
+</div>
+<div class="card bg-white p-6 rounded-lg shadow-md fade-in">
+<h3 class="text-xl font-semibold mb-4">Literary Works</h3>
+<p>Books, poetry, and writings in multiple languages.</p>
+</div>
+<div class="card bg-white p-6 rounded-lg shadow-md fade-in">
+<h3 class="text-xl font-semibold mb-4">Visual Materials</h3>
+<p>Photographs, maps, illustrations, and artwork.</p>
+</div>
+<div class="card bg-white p-6 rounded-lg shadow-md fade-in">
+<h3 class="text-xl font-semibold mb-4">Audio Collections</h3>
+<p>Music recordings, speeches, and oral histories.</p>
+</div>
+<div class="card bg-white p-6 rounded-lg shadow-md fade-in">
+<h3 class="text-xl font-semibold mb-4">Cultural Artifacts</h3>
+<p>Items representing Jewish heritage and Israeli culture.</p>
+</div>
+<div class="card bg-white p-6 rounded-lg shadow-md fade-in">
+<h3 class="text-xl font-semibold mb-4">Academic Resources</h3>
+<p>Research materials and scholarly publications.</p>
+</div>
+</div>
+</div>
+</section>
 
-    <section id="started" class="py-16 section-bg">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12 fade-in">Getting Started</h2>
-            <div class="space-y-8">
-                <div class="fade-in">
-                    <h3 class="text-2xl font-semibold mb-4">1. Install Claude Desktop</h3>
-                    <p>First, install Claude Desktop (≥ 2.0):</p>
-                    <ul class="list-disc ml-6">
-                        <li>Windows & Mac: Download from <a href="https://claude.ai/download" class="text-blue-600 hover:underline">https://claude.ai/download</a></li>
-                        <li>Linux: Use AppImage or follow official instructions.</li>
-                    </ul>
-                </div>
-                <div class="fade-in">
-                    <h3 class="text-2xl font-semibold mb-4">2. Download or Clone</h3>
-                    <h4 class="text-xl font-medium">Option A: Download the packaged release</h4>
-                    <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 justify-center my-4">
-                        <a href="https://github.com/mula2812/NLI_AI_Search/archive/refs/tags/v1.0.0.zip" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full flex items-center justify-center hover:from-blue-700 hover:to-purple-700">
-                            <span class="me-2">↓</span> <span id="text-win">Download</span>
-                        </a>
-                    </div>
-                    <ul class="list-disc ml-6">
-                        <li>Unzip the downloaded file.</li>
-                        <li>Double-click to install:
-                            <ul class="list-disc ml-6">
-                                <li><code>install_mcp_server.bat</code> (for Windows)</li>
-                                <li><code>install_mcp_server.bash</code> (for Linux)</li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <h4 class="text-xl font-medium mt-4">Option B: Clone manually</h4>
-                    <pre><code>git clone https://github.com/mula2812/NLI_AI_Search.git
+<!-- Getting Started Section -->
+<section id="started" class="py-16 section-bg">
+<div class="container mx-auto px-6">
+<h2 class="text-3xl font-bold text-center mb-12 fade-in">⚡Getting Started</h2>
+<div class="space-y-8">
+<div class="fade-in">
+<h3 class="text-2xl font-semibold mb-4">1. Install Claude Desktop</h3>
+<p>First, install Claude Desktop (≥ 2.0):</p>
+<ul class="list-disc ml-6">
+<li>Windows & Mac: Download from <a href="https://claude.ai/download" class="text-blue-600 hover:underline">https://claude.ai/download</a></li>
+<li>Linux: Use AppImage or follow official instructions.</li>
+</ul>
+</div>
+<div class="fade-in">
+<h3 class="text-2xl font-semibold mb-4">2. Download or Clone</h3>
+<h4 class="text-xl font-medium">Option A: Download the packaged release</h4>
+<div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 justify-center my-4">
+<a href="https://github.com/mula2812/NLI_AI_Search/archive/refs/tags/v1.0.0.zip" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full flex items-center justify-center hover:from-blue-700 hover:to-purple-700">
+<span class="me-2">↓</span> <span id="text-win">Download for Windows</span>
+</a>
+<a href="https://github.com/mula2812/NLI_AI_Search/archive/refs/tags/v1.0.0.tar.gz" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full flex items-center justify-center hover:from-blue-700 hover:to-purple-700">
+<span class="me-2">↓</span> <span id="text-lin">Download for Linux</span>
+</a>
+</div>
+<ul class="list-disc ml-6">
+<li>Unzip the downloaded file.</li>
+<li>To install - double-click on the file:
+<ul class="list-disc ml-6">
+<li><code>install_mcp_server.bat</code> (for Windows)</li>
+<li><code>install_mcp_server.bash</code> (for Linux)</li>
+</ul>
+</li>
+</ul>
+<h4 class="text-xl font-medium mt-4">Option B: Clone manually</h4>
+<pre><code>git clone https://github.com/mula2812/NLI_AI_Search.git
 cd nli_mcp</code></pre>
-                </div>
-                <div class="fade-in">
-                    <h3 class="text-2xl font-semibold mb-4">3. Ensure Python ≥ 3.10</h3>
-                    <h4 class="text-xl font-medium">Windows:</h4>
-                    <pre><code>winget install Python.Python.3</code></pre>
-                    <h4 class="text-xl font-medium">Ubuntu/Debian:</h4>
-                    <pre><code>sudo apt update
+</div>
+<div class="fade-in">
+<h3 class="text-xl font-medium mb-4">Ensure Python ≥ 3.10</h3>
+<h3 class="text-xl font-medium">Windows:</h3>
+<pre><code>winget install Python.Python.3</code></pre>
+<h3 class="text-xl font-medium">Ubuntu/Debian:</h3>
+<pre><code>sudo apt update
 sudo apt install python3.10 python3.10-venv python3.10-distutils -y</code></pre>
-                    <p>Optionally set as default:</p>
-                    <pre><code>sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 1
+<p>Optionally set as default:</p>
+<pre><code>sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 1
 sudo update-alternatives --config python3</code></pre>
-                </div>
-                <div class="fade-in">
-                    <h3 class="text-2xl font-semibold mb-4">4. Install Requirements</h3>
-                    <pre><code>pip install -r requirements.txt</code></pre>
-                </div>
-                <div class="fade-in">
-                    <h3 class="text-2xl font-semibold mb-4">5. Run the Installer</h3>
-                    <h4 class="text-xl font-medium">Windows</h4>
-                    <pre><code>.\install_mcp_server.bat</code></pre>
-                    <h4 class="text-xl font-medium">Linux</h4>
-                    <pre><code>chmod +x install_mcp_server.bash
+</div>
+<div class="fade-in">
+<h3 class="text-xl font-semibold mb-4">Install Requirements</h3>
+<pre><code>pip install -r requirements.txt</code></pre>
+</div>
+<div class="fade-in">
+<h3 class="text-xl font-semibold mb-4">Run the Installer</h3>
+<h3 class="text-xl font-medium">Windows</h3>
+<pre><code>.\install_mcp_server.bat</code></pre>
+<h3 class="text-xl font-medium">Linux</h3>
+<pre><code>chmod +x install_mcp_server.bash
 ./install_mcp_server.bash</code></pre>
-                </div>
-                <div class="fade-in">
-                    <h3 class="text-2xl font-semibold mb-4">6. Launch Claude Desktop</h3>
-                    <p>Restart Claude Desktop. Look for 'nli_mcp' in Search and Tools.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+</div>
+<div class="fade-in">
+<h3 class="text-2xl font-semibold mb-4">3. Launch Claude Desktop</h3>
+<p>
+    <li>Restart Claude Desktop.</li>
+    <li>After clicking the "Search and Tools" button in the search bar, you should now see a tool named: nli_mcp</li>
+<br>
+<center>If visible, you're ready to go!</center></p>
+</div>
+</div>
+</div>
+</section>
 
-    <section id="tools" class="py-16">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12 fade-in">Tools Available</h2>
-            <table class="w-full">
-                <thead>
-                    <tr>
-                        <th class="text-left">Tool Name</th>
-                        <th class="text-left">Purpose</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="fade-in">
-                        <td>process_natural_query</td>
-                        <td>Converts a natural language query into structured API parameters</td>
-                    </tr>
-                    <tr class="fade-in">
-                        <td>generate_response</td>
-                        <td>Fetches results, extracts images, and builds a user-facing response</td>
-                    </tr>
-                    <tr class="fade-in">
-                        <td>stream_batches</td>
-                        <td>Streams large result sets for long or segmented queries</td>
-                    </tr>
-                    <tr class="fade-in">
-                        <td>get_image</td>
-                        <td>Retrieves IIIF image by identifier</td>
-                    </tr>
-                    <tr class="fade-in">
-                        <td>get_manifest</td>
-                        <td>Retrieves IIIF manifest JSON for a given record</td>
-                    </tr>
-                    <tr class="fade-in">
-                        <td>get_stream</td>
-                        <td>Retrieves MP4/HLS/audio streams associated with a library record</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
+<!-- Now You Can Enjoy Using It Section -->
+<section id="enjoy" class="py-16">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center mb-12 fade-in">How To Use👨‍💻</h2>
+    <div class="space-y-6">
+      <div class="fade-in">
+        <h3 class="text-2xl font-semibold mb-2">Once installed:</h3>
+        <ul class="list-disc ml-6 space-y-2">
+          <li>Open Claude Desktop.</li>
+          <li>Ask any question involving books, authors, subjects, images, or topics.</li>
+          <li>For example:
+            <ul class="list-disc ml-6 mt-2">
+              <li>Books by Bialik published after 1920.</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="fade-in">
+        <h3 class="text-2xl font-semibold mb-2">You'll get:</h3>
+        <ul class="list-disc ml-6 space-y-2">
+          <li>Search results</li>
+          <li>Metadata</li>
+          <li>Links to items</li>
+          <li>Images or thumbnails</li>
+          <li>In some cases, streaming content or IIIF resources</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section id="troubleshooting" class="py-16 section-bg">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12 fade-in">Troubleshooting & FAQ</h2>
-            <div class="space-y-6">
-                <div class="fade-in">
-                    <h3 class="text-2xl font-semibold mb-2">Plugin not appearing?</h3>
-                    <p>Ensure Claude Desktop ≥ v2.0, restarted, and path uses English characters.</p>
-                </div>
-                <div class="fade-in">
-                    <h3 class="text-2xl font-semibold mb-2">MCP isn't responding?</h3>
-                    <p>Check installation, enable 'nli_mcp', internet, and logs.</p>
-                </div>
-                <div class="fade-in">
-                    <h3 class="text-2xl font-semibold mb-2">"Invalid API key" error</h3>
-                    <p>Check NLI_API_KEY. Get personal key from <a href="https://api2.nli.org.il/signup/" class="text-blue-600 hover:underline">https://api2.nli.org.il/signup/</a>.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Troubleshooting Section -->
+<section id="troubleshooting" class="py-16 section-bg">
+<div class="container mx-auto px-6">
+<h2 class="text-3xl font-bold text-center mb-12 fade-in">Troubleshooting & FAQ &#x2699;&#xFE0F;</h2>
+<div class="space-y-6">
+<div class="fade-in">
+<h3 class="text-2xl font-semibold mb-2">Plugin not appearing?</h3>
+<ul class="list-disc ml-6 space-y-2">
+<li>Ensure Claude Desktop is ≥ v2.0 and you restarted after install.</li>
+<li>Ensure that the installation package or project is located only in a path that contains English characters.</li>
+</ul>
+</div>
+<div class="fade-in">
+<h3 class="text-2xl font-semibold mb-2">MCP isn't responding. What should I do?</h3>
+<ul class="list-disc ml-6 space-y-2">
+<li>Make sure you installed it correctly. You should see in search and tools the "nli_mcp" addition.</li>
+<li>Ensure you enable all the "nli_mcp" inside options (from the search and tools options).</li>
+<li>Check your internet connection and firewall settings.</li>
+<li>Review the logs for any error messages.</li>
+</ul>
+</div>
+<div class="fade-in">
+<h3 class="text-2xl font-semibold mb-2">"Invalid API key" error</h3>
+<p>As a default visitor key is installed to your computer using the bat or bash file, which allows basic access to the library data.</p>
+<ol class="list-decimal ml-6 space-y-2">
+<li>Double-check the NLI_API_KEY environment variable, to ensure it installed correctly.</li>
+<li>Another option is to create your own free key: Obtaining a personal API key is not essential for the project's initial function, as mentioned. However, if you want to get full access to all the data and capabilities the National Library offers, it is highly recommended to register and get your own API key.</li>
+</ol>
+<ul class="list-disc ml-6 space-y-2">
+<li>Visit the National Library of Israel's Open Library API documentation Open Library API (<a href="https://api2.nli.org.il/signup/" class="text-blue-600 hover:underline">click</a>).</li>
+<li>Follow the instructions to register and get your API key. You may need to contact the National Library for access.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
 
-    <section id="contribute" class="py-16">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold mb-12 fade-in">Contributing</h2>
-            <p class="text-lg max-w-3xl mx-auto mb-8 fade-in">Fork, branch, and submit pull requests. We welcome improvements!</p>
-            <a href="https://github.com/mula2812/NLI_AI_Search" class="bg-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-700 fade-in">View on GitHub</a>
-        </div>
-    </section>
+<!-- Contribute Section -->
+<section id="contribute" class="py-16">
+<div class="container mx-auto px-6 text-center">
+<h2 class="text-3xl font-bold mb-12 fade-in">Contributing &#x1F91D;</h2>
+<p class="text-lg max-w-3xl mx-auto mb-8 fade-in">I warmly welcome contributions to improve this project. To contribute, please follow these steps:</p>
+<ol class="list-decimal ml-6 text-left max-w-3xl mx-auto space-y-2">
+<li>Fork this repository to create your own copy.</li>
+<li>Make your changes in a new branch.</li>
+<li>Submit a pull request with a clear description of your changes.</li>
+</ol>
+<p class="text-lg mt-8 fade-in">I look forward to seeing your inventions and updates!</p>
+</div>
+</section>
 
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto px-6 text-center">
-            <p>© 2025 NLI AI Search. MIT License. Not affiliated with National Library of Israel.</p>
-            <div class="mt-4 space-x-4">
-                <a href="https://github.com/mula2812/NLI_AI_Search/issues" class="hover:underline">Issues</a>
-                <a href="https://github.com/mula2812/NLI_AI_Search/discussions" class="hover:underline">Discussions</a>
-            </div>
-        </div>
-    </footer>
+<!-- Footer -->
+<footer class="bg-gray-800 text-white py-8">
+<div class="container mx-auto px-6 text-center">
+<p>© 2025 NLI AI Search. MIT License. Not affiliated with National Library of Israel.</p>
+<div class="mt-4 space-x-4">
+<a href="https://github.com/mula2812/NLI_AI_Search/issues" class="hover:underline">Issues</a>
+<a href="https://github.com/mula2812/NLI_AI_Search/discussions" class="hover:underline">Discussions</a>
+</div>
+</div>
+</footer>
 
-    <script>
-        // Language Data
-        const languages = {
-            en: {
-                dir: 'ltr',
-                lang: 'en',
-                title: 'NLI AI Search - National Library of Israel MCP',
-                header: {
-                    home: 'Home',
-                    why: 'Why Use',
-                    discover: 'Discover',
-                    started: 'Getting Started',
-                    tools: 'Tools',
-                    troubleshooting: 'Troubleshooting',
-                    contribute: 'Contribute'
-                },
-                hero: {
-                    title: 'National Library of Israel Search MCP',
-                    subtitle: 'AI-powered bridge for exploring millions of cultural, historical, and literary assets.',
-                    button: 'Get Started'
-                },
-                why: {
-                    title: 'Why Use This?',
-                    content: 'The NLI API is powerful but complex. This MCP converts simple questions like "medieval Hebrew manuscripts" into rich API calls with thumbnails and manifests.'
-                },
-                discover: {
-                    title: 'What You Can Discover',
-                    items: [
-                        { title: 'Historical Documents', desc: 'Ancient manuscripts, government records, and personal archives.' },
-                        { title: 'Literary Works', desc: 'Books, poetry, and writings in multiple languages.' },
-                        { title: 'Visual Materials', desc: 'Photographs, maps, illustrations, and artwork.' },
-                        { title: 'Audio Collections', desc: 'Music recordings, speeches, and oral histories.' },
-                        { title: 'Cultural Artifacts', desc: 'Items representing Jewish heritage and Israeli culture.' },
-                        { title: 'Academic Resources', desc: 'Research materials and scholarly publications.' }
-                    ]
-                },
-                started: {
-                    title: 'Getting Started',
-                    step1: '1. Install Claude Desktop',
-                    step1content: 'First, install Claude Desktop (≥ 2.0):',
-                    step1list: ['Windows & Mac: Download from https://claude.ai/download', 'Linux: Use AppImage or follow official instructions.'],
-                    step2: '2. Download or Clone',
-                    optionA: 'Option A: Download the packaged release',
-                    optionAcontent: 'Download from here.',
-                    optionAlist: ['Available for Windows (with .zip) and Linux (with .tar.gz).', 'Unzip the downloaded file.', 'Double-click to install: install_mcp_server.bat (for Windows), install_mcp_server.bash (for Linux)'],
-                    optionB: 'Option B: Clone manually',
-                    step3: '3. Ensure Python ≥ 3.10',
-                    win: 'Windows:',
-                    ubuntu: 'Ubuntu/Debian:',
-                    optional: 'Optionally set as default:',
-                    step4: '4. Install Requirements',
-                    step5: '5. Run the Installer',
-                    step6: '6. Launch Claude Desktop',
-                    step6content: "Restart Claude Desktop. Look for 'nli_mcp' in Search and Tools.",
-                    downloadWindows: 'Download for Windows',
-                    downloadLinux: 'Download for Linux'
-                },
-                tools: {
-                    title: 'Tools Available',
-                    headers: ['Tool Name', 'Purpose'],
-                    rows: [
-                        ['process_natural_query', 'Converts a natural language query into structured API parameters'],
-                        ['generate_response', 'Fetches results, extracts images, and builds a user-facing response'],
-                        ['stream_batches', 'Streams large result sets for long or segmented queries'],
-                        ['get_image', 'Retrieves IIIF image by identifier'],
-                        ['get_manifest', 'Retrieves IIIF manifest JSON for a given record'],
-                        ['get_stream', 'Retrieves MP4/HLS/audio streams associated with a library record']
-                    ]
-                },
-                troubleshooting: {
-                    title: 'Troubleshooting & FAQ',
-                    q1: 'Plugin not appearing?',
-                    a1: 'Ensure Claude Desktop ≥ v2.0, restarted, and path uses English characters.',
-                    q2: "MCP isn't responding?",
-                    a2: "Check installation, enable 'nli_mcp', internet, and logs.",
-                    q3: '"Invalid API key" error',
-                    a3: 'Check NLI_API_KEY. Get personal key from https://api2.nli.org.il/signup/.'
-                },
-                contribute: {
-                    title: 'Contributing',
-                    content: 'Fork, branch, and submit pull requests. We welcome improvements!',
-                    button: 'View on GitHub'
-                },
-                footer: '© 2025 NLI AI Search. MIT License. Not affiliated with National Library of Israel.',
-                issues: 'Issues',
-                discussions: 'Discussions'
-            },
-            he: {
-                dir: 'rtl',
-                lang: 'he',
-                title: 'חיפוש AI NLI - פרוטוקול הקשר מודל של ספריית ישראל הלאומית',
-                header: {
-                    home: 'בית',
-                    why: 'למה להשתמש',
-                    discover: 'מה אפשר לגלות',
-                    started: 'תחילת העבודה',
-                    tools: 'כלים',
-                    troubleshooting: 'פתרון בעיות',
-                    contribute: 'תרומה'
-                },
-                hero: {
-                    title: 'חיפוש AI בספרייה הלאומית MCP',
-                    subtitle: 'גשר מופעל בינה מלאכותית לחקירת מיליוני נכסים תרבותיים, היסטוריים וספרותיים.',
-                    button: 'התחל עכשיו'
-                },
-                why: {
-                    title: 'למה להשתמש בזה?',
-                    content: 'ה-API של הספרייה הלאומית הוא עוצמתי אך מורכב. ה-MCP הזה ממיר שאלות פשוטות כמו "כתבי יד עבריים מימי הביניים" לקריאות API עשירות עם תמונות ממוזערות ומניפסטים.'
-                },
-                discover: {
-                    title: 'מה אפשר לגלות',
-                    items: [
-                        { title: 'מסמכים היסטוריים', desc: 'כתבי יד עתיקים, רשומות ממשלתיות וארכיונים אישיים.' },
-                        { title: 'יצירות ספרותיות', desc: 'ספרים, שירה וכתבים בשפות שונות.' },
-                        { title: 'חומרים חזותיים', desc: 'תמונות, מפות, איורים ויצירות אמנות.' },
-                        { title: 'אוספי אודיו', desc: 'הקלטות מוזיקה, נאומים ותיעודים של היסטוריה בעל פה.' },
-                        { title: 'חפצי תרבות', desc: 'פריטים המייצגים מורשת יהודית ותרבות ישראלית.' },
-                        { title: 'משאבים אקדמיים', desc: 'חומרי מחקר ופרסומים אקדמיים.' }
-                    ]
-                },
-                started: {
-                    title: 'תחילת העבודה',
-                    step1: '1. התקנת Claude Desktop',
-                    step1content: 'ראשית, התקן את Claude Desktop (גרסה 2.0 ומעלה):',
-                    step1list: ['Windows & Mac: הורדה בקישור <a href="https://claude.ai/download" class="text-blue-600 hover:underline">https://claude.ai/download</a>', 'Linux: השתמש ב-AppImage או עקוב אחר ההוראות הרשמיות.'],
-                    step2: '2. הורדה או שיכפול',
-                    optionA: 'אפשרות א: הורדת הגרסה הארוזה',
-                    optionAcontent: 'הורד מכאן:',
-                    optionAlist: ['זמין עבור Windows (קובץ .zip) ו-Linux (קובץ .tar.gz).', 'חלץ את הקובץ שהורד.', 'לחץ פעמיים כדי להתקין: <code>install_mcp_server.bat</code> (עבור Windows) או <code>install_mcp_server.bash</code> (עבור Linux).'],
-                    optionB: 'אפשרות ב: שכפול ידני',
-                    step3: '3. ודא ש-Python בגרסה 3.10 ומעלה',
-                    win: 'עבור Windows:',
-                    ubuntu: 'עבור Ubuntu/Debian:',
-                    optional: 'אפשרות להגדרה כברירת מחדל:',
-                    step4: '4. התקנת דרישות',
-                    step5: '5. הרצת המתקין',
-                    step6: '6. הפעלת Claude Desktop',
-                    step6content: "הפעל מחדש את Claude Desktop. חפש את 'nli_mcp' בחיפוש וכלים.",
-                    downloadWindows: 'הורדה ל-Windows',
-                    downloadLinux: 'הורדה ל-Linux'
-                },
-                tools: {
-                    title: 'כלים זמינים',
-                    headers: ['שם הכלי', 'מטרה'],
-                    rows: [
-                        ['process_natural_query', 'ממיר שאילתת שפה טבעית לפרמטרים מובנים של API'],
-                        ['generate_response', 'מאחזר תוצאות, מחלץ תמונות ובונה תגובה למשתמש'],
-                        ['stream_batches', 'מזרים סטים גדולים של תוצאות עבור שאילתות ארוכות או מחולקות'],
-                        ['get_image', 'מאחזר תמונת IIIF לפי מזהה'],
-                        ['get_manifest', 'מאחזר קובץ JSON של מניפסט IIIF עבור רשומה נתונה'],
-                        ['get_stream', 'מאחזר זרמי MP4/HLS/אודיו הקשורים לרשומה בספרייה']
-                    ]
-                },
-                troubleshooting: {
-                    title: 'פתרון בעיות ושאלות נפוצות',
-                    q1: 'התוסף לא מופיע?',
-                    a1: 'ודא ש-Claude Desktop ≥ v2.0, הפעל מחדש, ושהנתיב אינו מכיל תווים שאינם באנגלית.',
-                    q2: 'ה-MCP לא מגיב?',
-                    a2: "בדוק את ההתקנה, ודא ש-'nli_mcp' מופעל, בדוק חיבור לאינטרנט ויומני אירועים (logs).",
-                    q3: 'שגיאת "מפתח API לא חוקי"',
-                    a3: 'בדוק את NLI_API_KEY. ניתן לקבל מפתח אישי כאן: <a href="https://api2.nli.org.il/signup/" class="text-blue-600 hover:underline">https://api2.nli.org.il/signup/</a>.'
-                },
-                contribute: {
-                    title: 'תרומה לפרויקט',
-                    content: 'בצעו Fork, פתחו branch חדש ושלחו בקשות משיכה. נשמח לקבל שיפורים!',
-                    button: 'צפייה ב-GitHub'
-                },
-                footer: '© 2025 NLI AI Search. רישיון MIT. אין קשר לספרייה הלאומית של ישראל.',
-                issues: 'בעיות',
-                discussions: 'דיונים'
-            }
-        };
-
-        // Function to switch language
-        function switchLanguage(lang) {
-            const data = languages[lang];
-            document.documentElement.lang = data.lang;
-            document.documentElement.dir = data.dir;
-            document.body.classList.toggle('hebrew', lang === 'he');
-            document.title = data.title;
-
-            // Update header
-            const navLinks = document.querySelectorAll('nav a');
-            navLinks[0].textContent = data.header.home;
-            navLinks[1].textContent = data.header.why;
-            navLinks[2].textContent = data.header.discover;
-            navLinks[3].textContent = data.header.started;
-            navLinks[4].textContent = data.header.tools;
-            navLinks[5].textContent = data.header.troubleshooting;
-            navLinks[6].textContent = data.header.contribute;
-
-            // Hero
-            document.querySelector('#home h1').textContent = data.hero.title;
-            document.querySelector('#home p').textContent = data.hero.subtitle;
-            document.querySelector('#home a').textContent = data.hero.button;
-
-            // Why
-            document.querySelector('#why h2').textContent = data.why.title;
-            document.querySelector('#why p').textContent = data.why.content;
-
-            // Discover
-            document.querySelector('#discover h2').textContent = data.discover.title;
-            const discoverCards = document.querySelectorAll('#discover .card');
-            data.discover.items.forEach((item, i) => {
-                discoverCards[i].querySelector('h3').textContent = item.title;
-                discoverCards[i].querySelector('p').textContent = item.desc;
-            });
-
-            // Started
-            document.querySelector('#started h2').textContent = data.started.title;
-            const startedSections = document.querySelectorAll('#started > div > div');
-
-            // Step 1
-            startedSections[0].querySelector('h3').textContent = data.started.step1;
-            startedSections[0].querySelector('p').textContent = data.started.step1content;
-            const step1ListItems = startedSections[0].querySelectorAll('ul li');
-            data.started.step1list.forEach((item, i) => {
-                step1ListItems[i].innerHTML = item;
-            });
-
-            // Step 2
-            startedSections[1].querySelector('h3').textContent = data.started.step2;
-            startedSections[1].querySelector('h4').textContent = data.started.optionA;
-            document.getElementById('text-win').textContent = data.started.downloadWindows;
-            startedSections[1].querySelector('ul li:nth-child(1)').textContent = data.started.optionAlist[0];
-            startedSections[1].querySelector('ul li:nth-child(2)').textContent = data.started.optionAlist[1];
-            startedSections[1].querySelector('ul li:nth-child(3)').innerHTML = data.started.optionAlist[2];
-            startedSections[1].querySelector('h4:nth-of-type(2)').textContent = data.started.optionB;
-
-            // Step 3
-            startedSections[2].querySelector('h3').textContent = data.started.step3;
-            startedSections[2].querySelector('h4:nth-of-type(1)').textContent = data.started.win;
-            startedSections[2].querySelector('h4:nth-of-type(2)').textContent = data.started.ubuntu;
-            startedSections[2].querySelector('p').textContent = data.started.optional;
-
-            // Step 4
-            startedSections[3].querySelector('h3').textContent = data.started.step4;
-
-            // Step 5
-            startedSections[4].querySelector('h3').textContent = data.started.step5;
-
-            // Step 6
-            startedSections[5].querySelector('h3').textContent = data.started.step6;
-            startedSections[5].querySelector('p').textContent = data.started.step6content;
-
-
-            // Tools
-            document.querySelector('#tools h2').textContent = data.tools.title;
-            const toolHeaders = document.querySelectorAll('#tools th');
-            toolHeaders[0].textContent = data.tools.headers[0];
-            toolHeaders[1].textContent = data.tools.headers[1];
-            const toolRows = document.querySelectorAll('#tools tbody tr');
-            data.tools.rows.forEach((row, i) => {
-                toolRows[i].querySelector('td:nth-child(1)').textContent = row[0];
-                toolRows[i].querySelector('td:nth-child(2)').textContent = row[1];
-            });
-
-            // Troubleshooting
-            document.querySelector('#troubleshooting h2').textContent = data.troubleshooting.title;
-            const tsSections = document.querySelectorAll('#troubleshooting > div > div');
-            tsSections[0].querySelector('h3').textContent = data.troubleshooting.q1;
-            tsSections[0].querySelector('p').textContent = data.troubleshooting.a1;
-            tsSections[1].querySelector('h3').textContent = data.troubleshooting.q2;
-            tsSections[1].querySelector('p').textContent = data.troubleshooting.a2;
-            tsSections[2].querySelector('h3').textContent = data.troubleshooting.q3;
-            tsSections[2].querySelector('p').innerHTML = data.troubleshooting.a3.replace('https://api2.nli.org.il/signup/', '<a href="https://api2.nli.org.il/signup/" class="text-blue-600 hover:underline">https://api2.nli.org.il/signup/</a>');
-
-            // Contribute
-            document.querySelector('#contribute h2').textContent = data.contribute.title;
-            document.querySelector('#contribute p').textContent = data.contribute.content;
-            document.querySelector('#contribute a').textContent = data.contribute.button;
-
-            // Footer
-            document.querySelector('footer p').textContent = data.footer;
-            const footerLinks = document.querySelectorAll('footer a');
-            footerLinks[0].textContent = data.issues;
-            footerLinks[1].textContent = data.discussions;
-
-            // Update active button
-            document.querySelectorAll('.lang-switcher button').forEach(btn => btn.classList.remove('active'));
-            document.getElementById(`lang-${lang}`).classList.add('active');
-        }
-
-        // Event listeners for language switch
-        document.getElementById('lang-en').addEventListener('click', () => switchLanguage('en'));
-        document.getElementById('lang-he').addEventListener('click', () => switchLanguage('he'));
-
-        // Fade-in animations
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        });
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-        // Default to English
-        switchLanguage('en');
-    </script>
+<script>
+// Fade-in animations
+const observer = new IntersectionObserver(entries => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.classList.add('visible');
+}
+});
+});
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
