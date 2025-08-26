@@ -204,8 +204,12 @@ Issues & Bugs: GitHub Issues
 Discussions & Q&A: GitHub Discussions
 
 ## License
+This project is licensed under the **MIT License with Commons Clause**.
 
-This project is open-source and available under the MIT License. Users must retain the copyright notice and license text in all copies or substantial portions of the software.
+- Personal, educational, and non-commercial use is allowed.
+- **Commercial use**, including selling, licensing, or using the software in any revenue-generating product or service, **requires prior written permission and a separate commercial license agreement from Ilan Mulakandov**.
+- This restriction applies even if the software was originally used for personal, educational, or non-commercial purposes that later lead to commercial use.
+- Users must retain the copyright notice and license text in all copies or substantial portions of the software.
 
 ## 🚨 Disclaimer
 
